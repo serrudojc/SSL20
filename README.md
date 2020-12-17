@@ -1,5 +1,5 @@
 # TPS-Sintaxis
-
+##----------------------------------------------
 ## Link del enunciado del TP1 de SSL 2020 Zuñiga
 https://drive.google.com/file/d/1oLXN4gkKi59VQ4Q-K3hETGXWtB6eFN38/view?usp=sharing
 
@@ -30,3 +30,15 @@ Para Powershell ↓
 ```
 Get-Content .\datosPrueba.txt | .\scanner.exe
 ```
+
+##------------------------------------------------
+## Link del enunciado del TP2 de SSL 2020 Zuñiga
+https://drive.google.com/file/d/1KZVQzjautDMeS_CBT_8_fB20ELV-P8DC/view?usp=sharing
+https://drive.google.com/file/d/13biHfHaplypjfCogOCeHhp3czz8bz7-F/view?usp=sharing
+
+Resolucion parcial
+https://docs.google.com/document/d/1XtNvKy9ylJgBvZ1IoqZPxtEUHSizGsd_gk2JF-xlY50/edit?usp=sharing
+
+##------------------------------------------------
+## Link del enunciado del TP3 de SSL 2020 Zuñiga
+En la carpeta
