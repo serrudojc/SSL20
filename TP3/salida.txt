@@ -1,16 +1,21 @@
 Token: Programa
 Token: Declarar
-Error léxico: identificador inválido: var1;
+Token: Identificador	lexema: var1
+Token: ';'
 Token: Declarar
-Error léxico: identificador inválido: var2;
+Token: Identificador	lexema: var2
+Token: ';'
 Token: Leer
-(Token: Identificador	lexema: var1
+Token: '('
+Token: Identificador	lexema: var1
 Token: ','
 Token: Identificador	lexema: var2
 Token: ')'
-Error léxico: cadena desconocida: ;@@
+Token: ';'
+Error léxico: cadena desconocida: @@
 Token: Declarar
-Error léxico: identificador inválido: total;
+Token: Identificador	lexema: total
+Token: ';'
 Token: Identificador	lexema: total
 Token: Asignacion
 Token: Identificador	lexema: var1
@@ -18,22 +23,26 @@ Token: '+'
 Token: Constante	lexema: 3
 Token: '*'
 Token: '-'
-Error léxico: identificador inválido: var2;
+Token: Identificador	lexema: var2
+Token: ';'
 Token: Identificador	lexema: var2
 Token: Asignacion
 Token: Constante	lexema: 2
 Token: '*'
-(Token: Constante	lexema: 514
+Token: '('
+Token: Constante	lexema: 514
 Token: '+'
 Error léxico: constante inválida: 4z2m
 Token: ')'
-Error léxico: cadena desconocida: ;
+Token: ';'
 Token: Escribir
-(Error léxico: identificador inválido: total&3a@
+Token: '('
+Error léxico: identificador inválido: total&3a@
 Token: '/'
 Token: Constante	lexema: 2
 Token: ')'
-Error léxico: cadena desconocida: ;<
+Token: ';'
+Error léxico: cadena desconocida: <
 Error léxico: identificador inválido: hola#come
 Token: Fin-Prog
 Token: Fin de archivo
