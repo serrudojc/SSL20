@@ -26,17 +26,17 @@
 
 %%
 
-inicio:                   PROGRAMA lista-sentencias FIN {if (nerrlex || yynerrs) YYABORT;};
+inicio:                   PROGRAMA lista-sentencias FIN {if (nerrlex || yynerrs) YYABORT;}
 
 lista-sentencias:         sentencia
                         | sentencia lista-sentencias
                         | %empty
                         ;
 
-sentencia:                DECLARAR IDENTIFICADOR ';'             {printf("declarar %s\n",$2);}
-                        | IDENTIFICADOR "<-" expresion ';'       {puts("asignación\n");}
-                        | LEER '(' lista-identificadores ')' ';' {puts("leer\n");}
-                        | ESCRIBIR '(' lista-expresiones ')' ';' {puts("escribir\n");}
+sentencia:                DECLARAR IDENTIFICADOR ';'                {printf("declarar %s\n", $2);}
+                        | IDENTIFICADOR "<-" expresion ';'          {puts("asignación\n");}
+                        | LEER '(' lista-identificadores ')' ';'    {puts("leer\n");}
+                        | ESCRIBIR '(' lista-expresiones ')' ';'    {puts("escribir\n");}
                         | error ';'
                         ;
 
@@ -47,12 +47,14 @@ lista-identificadores:    IDENTIFICADOR ';'
 lista-expresiones:        expresion ';'
                         | expresion ',' lista-expresiones
                         ;
+
 expresion:                termino
-                        | expresion '+' termino                  expresion {puts("suma\n");
+                        | expresion '+' termino                  expresion {puts("suma\n");}
                         | expresion '-' termino                  expresion {puts("resta\n");}
                         ;
+
 termino:                  valor
-                        | termino '*' valor                       expresion {puts("multiplicación\n");}
+                        | termino '*' valor                      expresion {puts("multiplicación\n");}
                         | termino '/' valor                      expresion {puts("división\n");}
                         ;
 
