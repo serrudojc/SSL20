@@ -1,7 +1,7 @@
-%code top{
+%{
     #include <stdio.h>
     #include "scanner.h"
-}
+%}
 
 %code provides {
     void yyerror(const char *s); 
@@ -10,6 +10,7 @@
 
 %defines "parser.h"
 %output "parser.c"
+%start inicio
 %define api.value.type {char *}
 %define parse.error verbose
 
@@ -27,11 +28,11 @@
 %%
 
 inicio:                   PROGRAMA lista-sentencias FIN {if (nerrlex || yynerrs) YYABORT;}
-
+                        ;
+                        
 lista-sentencias:         sentencia
                         | sentencia lista-sentencias
-                        | %empty
-                        ;
+                        ;                      
 
 sentencia:                DECLARAR IDENTIFICADOR ';'                {printf("declarar %s\n", $2);}
                         | IDENTIFICADOR "<-" expresion ';'          {puts("asignación\n");}
