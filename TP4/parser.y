@@ -41,11 +41,11 @@ sentencia:                DECLARAR IDENTIFICADOR ';'                {printf("dec
                         | error ';'
                         ;
 
-lista-identificadores:    IDENTIFICADOR ';'
+lista-identificadores:    IDENTIFICADOR
                         | IDENTIFICADOR ',' lista-identificadores
                         ;
 
-lista-expresiones:        expresion ';'
+lista-expresiones:        expresion
                         | expresion ',' lista-expresiones
                         ;
 
