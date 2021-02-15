@@ -29,7 +29,7 @@
 
 inicio:                   PROGRAMA lista-sentencias FIN {if (nerrlex || yynerrs) YYABORT;}
                         ;
-                        
+
 lista-sentencias:         sentencia
                         | sentencia lista-sentencias
                         ;                      
@@ -50,13 +50,13 @@ lista-expresiones:        expresion ';'
                         ;
 
 expresion:                termino
-                        | expresion '+' termino                  expresion {puts("suma\n");}
-                        | expresion '-' termino                  expresion {puts("resta\n");}
+                        | expresion '+' termino                  {puts("suma\n");}
+                        | expresion '-' termino                  {puts("resta\n");}
                         ;
 
 termino:                  valor
-                        | termino '*' valor                      expresion {puts("multiplicación\n");}
-                        | termino '/' valor                      expresion {puts("división\n");}
+                        | termino '*' valor                      {puts("multiplicación\n");}
+                        | termino '/' valor                      {puts("división\n");}
                         ;
 
 valor:                    IDENTIFICADOR
