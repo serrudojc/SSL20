@@ -46,8 +46,9 @@ En la carpeta
 ##------------------------------------------------
 ## Link del enunciado del TP4 de SSL 2020 Zuñiga
 En la carpeta
-
-```flex scanner.l
-```bison parser.y
-```gcc -o compiler *.c -lfl
-```./compiler<entradaok.txt
+```
+flex scanner.l
+bison parser.y
+gcc -o compiler *.c -lfl
+./compiler<entradaok.txt
+```
