@@ -17,7 +17,7 @@
 %token FDT PROGRAMA FIN DECLARAR LEER ESCRIBIR IDENTIFICADOR CONSTANTE
 %token ASIGNACION "<-"
 
-%left  '+'  '-'
+%left  '-'  '+'
 %left  '*'  '/'
 %precedence NEG
 
@@ -61,7 +61,7 @@ termino:                  valor
 
 valor:                    IDENTIFICADOR
                         | CONSTANTE
-                        | '-' expresion                          %prec NEG {puts("inversión\n");}
+                        | '-' valor                          %prec NEG {puts("inversión\n");}
                         | '(' expresion ')'                      {puts("paréntesis\n");}
                         ;
 %%
