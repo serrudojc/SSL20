@@ -4,7 +4,7 @@
 }
 
 %code provides {
-    void yyerror(const char *); 
+    void yyerror(const char *s); 
     extern int nerrlex;
 }
 
@@ -33,8 +33,8 @@ lista-sentencias:         sentencia
                         | %empty
                         ;
 
-sentencia:                DECLARAR IDENTIFICADOR ';' {printf("declarar %s\n",$2);}
-                        | IDENTIFICADOR "<-" expresion ';' {puts("asignación\n");}
+sentencia:                DECLARAR IDENTIFICADOR ';'             {printf("declarar %s\n",$2);}
+                        | IDENTIFICADOR "<-" expresion ';'       {puts("asignación\n");}
                         | LEER '(' lista-identificadores ')' ';' {puts("leer\n");}
                         | ESCRIBIR '(' lista-expresiones ')' ';' {puts("escribir\n");}
                         | error ';'
@@ -47,21 +47,20 @@ lista-identificadores:    IDENTIFICADOR ';'
 lista-expresiones:        expresion ';'
                         | expresion ',' lista-expresiones
                         ;
-
-expresion:                valor
-                        | '-' expresion %prec NEG {puts("inversión\n");}
-                        | '(' expresion ')' {puts("paréntesis\n");}
-                        | expresion '+' expresion {puts("suma\n");}
-                        | expresion '-' expresion {puts("resta\n");}
-                        | expresion '*' expresion {puts("multiplicación\n");}
-                        | expresion '/' expresion {puts("división\n");}
+expresion:                termino
+                        | expresion '+' termino                  expresion {puts("suma\n");
+                        | expresion '-' termino                  expresion {puts("resta\n");}
+                        ;
+termino:                  valor
+                        | termino '*' valor                       expresion {puts("multiplicación\n");}
+                        | termino '/' valor                      expresion {puts("división\n");}
                         ;
 
 valor:                    IDENTIFICADOR
                         | CONSTANTE
+                        | '-' expresion                          %prec NEG {puts("inversión\n");}
+                        | '(' expresion ')'                      {puts("paréntesis\n");}
                         ;
-
-
 %%
 
 void yyerror(const char *s){

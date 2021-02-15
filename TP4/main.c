@@ -10,10 +10,12 @@ Cruz David
 #include "scanner.h"
 
 extern int yynerrs;
-int nerrlex = 0;
+//int nerrlex = 0;
 
-int main() {
-	switch( yyparse() ){
+int main()
+{
+	switch (yyparse())
+	{
 	case 0:
 		puts("Compilación terminada con éxito\n");
 		printf("Errores sintácticos: %d - Errores léxicos: %d\n", yynerrs, nerrlex);
