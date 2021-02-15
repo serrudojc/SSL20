@@ -22,7 +22,7 @@
 %precedence NEG
 
 %code {
-    char *token_names[] = {"ASIGNACION", "PROGRAMA", "FIN", "DECLARAR", "LEER", "ESCRIBIR", "IDENTIFICADOR", "CONSTANTE"} //hace falta esto?s
+    char *token_names[] = {"ASIGNACION", "PROGRAMA", "FIN", "DECLARAR", "LEER", "ESCRIBIR", "IDENTIFICADOR", "CONSTANTE"}; //hace falta esto?s
 }
 
 %%

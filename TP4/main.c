@@ -10,7 +10,7 @@ Cruz David
 #include "scanner.h"
 
 extern int yynerrs;
-//int nerrlex = 0;
+int nerrlex = 0;
 
 int main()
 {
