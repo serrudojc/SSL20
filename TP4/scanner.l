@@ -1,9 +1,9 @@
-%top{
+%{
 	#include <stdio.h>
 	#include <strings.h>
 	#include "parser.h"
 	char msg[120]; //para poder armar mensajes a enviar a yyerror
-}
+%}
 
 %option header-file="scanner.h"
 %option outfile="scanner.c"
@@ -21,23 +21,23 @@ O				[[:punct:]]{-}[\(\).,+\-*/\;]
 
 %%
 
-programa					return PROGRAMA;
-fin-prog					return FIN;
-declarar					return DECLARAR;
-leer						return LEER;
-escribir 					return ESCRIBIR;
+programa					{return PROGRAMA;}
+fin-prog					{return FIN;}
+declarar					{return DECLARAR;}
+leer						{return LEER;}
+escribir 					{return ESCRIBIR;}
 {L}{LD}*					{yylval = strdup(yytext); return IDENTIFICADOR;}
 {D}+						{yylval = strdup(yytext); return CONSTANTE;}
-"("							return '(';
-")"							return ')';
-"."							return '.';
-","							return ',';
-"+"							return '+';
-"-"							return '-';
-"*"							return '*';
-"/"							return '/';
-";"							return ';';
-{Asignacion}				return ASIGNACION;
+"("							{return '(';}
+")"							{return ')';}
+"."							{return '.';}
+","							{return ',';}
+"+"							{return '+';}
+"-"							{return '-';}
+"*"							{return '*';}
+"/"							{return '/';}
+";"							{return ';';}
+{Asignacion}				{return ASIGNACION;}
 {O}+						{nerrlex++; sprintf(msg,"Error léxico: cadena desconocida: %s\n",yytext); yyerror(msg);}
 {L}{LD}*{O}+({LD}|{O})*		{nerrlex++; sprintf(msg,"Error léxico: identificador inválido: %s\n",yytext); yyerror(msg);}
 {D}+{L}+{LD}*				{nerrlex++; sprintf(msg,"Error léxico: constante inválida: %s\n",yytext); yyerror(msg);}

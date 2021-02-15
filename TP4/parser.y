@@ -14,7 +14,7 @@
 %define api.value.type {char *}
 %define parse.error verbose
 
-%token FDT PROGRAMA FIN DECLARAR LEER ESCRIBIR IDENTIFICADOR CONSTANTE
+%token PROGRAMA FIN DECLARAR LEER ESCRIBIR IDENTIFICADOR CONSTANTE
 %token ASIGNACION "<-"
 
 %left  '-'  '+'
@@ -22,7 +22,7 @@
 %precedence NEG
 
 %code {
-    char *token_names[] = {"FDT", "ASIGNACION", "PROGRAMA", "FIN", "DECLARAR", "LEER", "ESCRIBIR", "IDENTIFICADOR", "CONSTANTE"}
+    char *token_names[] = {"ASIGNACION", "PROGRAMA", "FIN", "DECLARAR", "LEER", "ESCRIBIR", "IDENTIFICADOR", "CONSTANTE"} //hace falta esto?s
 }
 
 %%
@@ -35,9 +35,9 @@ lista-sentencias:         sentencia
                         ;                      
 
 sentencia:                DECLARAR IDENTIFICADOR ';'                {printf("declarar %s\n", $2);}
-                        | IDENTIFICADOR "<-" expresion ';'          {puts("asignación\n");}
-                        | LEER '(' lista-identificadores ')' ';'    {puts("leer\n");}
-                        | ESCRIBIR '(' lista-expresiones ')' ';'    {puts("escribir\n");}
+                        | IDENTIFICADOR "<-" expresion ';'          {printf("asignación\n");}
+                        | LEER '(' lista-identificadores ')' ';'    {printf("leer\n");}
+                        | ESCRIBIR '(' lista-expresiones ')' ';'    {printf("escribir\n");}
                         | error ';'
                         ;
 
@@ -50,19 +50,19 @@ lista-expresiones:        expresion ';'
                         ;
 
 expresion:                termino
-                        | expresion '+' termino                  {puts("suma\n");}
-                        | expresion '-' termino                  {puts("resta\n");}
+                        | expresion '+' termino                  {printf("suma\n");}
+                        | expresion '-' termino                  {printf("resta\n");}
                         ;
 
 termino:                  valor
-                        | termino '*' valor                      {puts("multiplicación\n");}
-                        | termino '/' valor                      {puts("división\n");}
+                        | termino '*' valor                      {printf("multiplicación\n");}
+                        | termino '/' valor                      {printf("división\n");}
                         ;
 
 valor:                    IDENTIFICADOR
                         | CONSTANTE
-                        | '-' valor                          %prec NEG {puts("inversión\n");}
-                        | '(' expresion ')'                      {puts("paréntesis\n");}
+                        | '-' valor                    %prec NEG {printf("inversión\n");}
+                        | '(' expresion ')'                      {printf("paréntesis\n");}
                         ;
 %%
 
