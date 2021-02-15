@@ -17,11 +17,11 @@ int main()
 	switch (yyparse())
 	{
 	case 0:
-		puts("Compilación terminada con éxito\n");
+		puts("Compilación terminada con éxito");
 		printf("Errores sintácticos: %d - Errores léxicos: %d\n", yynerrs, nerrlex);
 		return 0;
 	case 1:
-		puts("Errores de compilación\n");
+		puts("Errores de compilación");
 		printf("Errores sintácticos: %d - Errores léxicos: %d\n", yynerrs, nerrlex);
 		return 1;
 	case 2:

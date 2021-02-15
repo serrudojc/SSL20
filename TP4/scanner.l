@@ -38,9 +38,9 @@ escribir 					{return ESCRIBIR;}
 "/"							{return '/';}
 ";"							{return ';';}
 {Asignacion}				{return ASIGNACION;}
-{O}+						{nerrlex++; sprintf(msg,"Error léxico: cadena desconocida: %s\n",yytext); yyerror(msg);}
-{L}{LD}*{O}+({LD}|{O})*		{nerrlex++; sprintf(msg,"Error léxico: identificador inválido: %s\n",yytext); yyerror(msg);}
-{D}+{L}+{LD}*				{nerrlex++; sprintf(msg,"Error léxico: constante inválida: %s\n",yytext); yyerror(msg);}
+{O}+						{nerrlex++; sprintf(msg,"Error léxico: cadena desconocida: %s",yytext); yyerror(msg);}
+{L}{LD}*{O}+({LD}|{O})*		{nerrlex++; sprintf(msg,"Error léxico: identificador inválido: %s",yytext); yyerror(msg);}
+{D}+{L}+{LD}*				{nerrlex++; sprintf(msg,"Error léxico: constante inválida: %s",yytext); yyerror(msg);}
 {S}+						|
 {Comentario}				;
 
