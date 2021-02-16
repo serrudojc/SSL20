@@ -30,8 +30,9 @@
 inicio:                   PROGRAMA lista-sentencias FIN {if (nerrlex || yynerrs) YYABORT;}
                         ;
 
-lista-sentencias: |  sentencia
+lista-sentencias:         sentencia
                         | sentencia lista-sentencias
+                        | %empty
                         ;                      
 
 sentencia:                DECLARAR IDENTIFICADOR ';'                {printf("declarar %s\n", $2);}
