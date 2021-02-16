@@ -17,7 +17,7 @@ LD				[[:alnum:]]
 S				[[:space:]]
 Asignacion		<-
 Comentario		"##".*
-O				[[:punct:]]{-}[\(\).,+\-*/\;]
+O				[[:punct:]]{-}[\(\),+\-*/\;]
 
 %%
 
