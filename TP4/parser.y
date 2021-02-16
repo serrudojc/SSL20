@@ -30,8 +30,7 @@
 inicio:                   PROGRAMA lista-sentencias FIN {if (nerrlex || yynerrs) YYABORT;}
                         ;
 
-lista-sentencias:       %empty
-                        |  sentencia
+lista-sentencias: |  sentencia
                         | sentencia lista-sentencias
                         ;                      
 
@@ -50,15 +49,16 @@ lista-expresiones:        expresion
                         | expresion ',' lista-expresiones
                         ;
 
-expresion:                expresion '+' expresion           {printf("suma\n");}
+expresion:              '-' expresion                    %prec NEG {printf("inversión\n");}
+                        | '(' expresion ')'                 {printf("paréntesis\n");}
+                        | expresion '+' expresion           {printf("suma\n");}
                         | expresion '-' expresion           {printf("resta\n");}
                         | expresion '*' expresion           {printf("multiplicación\n");}
                         | expresion '/' expresion           {printf("división\n");}
                         | IDENTIFICADOR
                         | CONSTANTE
-                        | '-' expresion           %prec NEG {printf("inversión\n");}
-                        | '(' expresion ')'                 {printf("paréntesis\n");}
                         ;
+
 %%
 
 void yyerror(const char *s){
