@@ -42,3 +42,13 @@ https://docs.google.com/document/d/1XtNvKy9ylJgBvZ1IoqZPxtEUHSizGsd_gk2JF-xlY50/
 ##------------------------------------------------
 ## Link del enunciado del TP3 de SSL 2020 Zuñiga
 En la carpeta
+
+##------------------------------------------------
+## Link del enunciado del TP4 de SSL 2020 Zuñiga
+En la carpeta
+```
+flex scanner.l
+bison parser.y
+gcc -o compiler *.c -lfl
+./compiler<entradaok.txt
+```
