@@ -46,7 +46,10 @@ lista-sentencias:         sentencia
                         | %empty
                         ;                      
 
-sentencia:                DECLARAR IDENTIFICADOR ';'                {printf("Reserve %s\n", $2);}
+sentencia:                DECLARAR IDENTIFICADOR ';'                {if(!existe($3)){
+                                                                        declarar($3);
+                                                                        agregar($3);
+                                                                    }else{mostrarError($3,0);YYERROR;};}
                         | IDENTIFICADOR "<-" expresion ';'          {guardar($3,$1);}
                         | LEER '(' lista-identificadores ')' ';'    
                         | ESCRIBIR '(' lista-expresiones ')' ';'    
