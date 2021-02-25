@@ -1,0 +1,11 @@
+void comenzar();
+void finalizar();
+void reservar(char *var);
+void leer(char *var);
+void escribir(char *var);
+void asignar(char *var1, char *var2);
+char* sum(char *var1, char *var2);
+char* rest(char *var1, char *var2);
+char* mult(char *var1, char *var2);
+char* divi(char *var1, char *var2);
+char* neg(char *var);
