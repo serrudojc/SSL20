@@ -8,7 +8,7 @@ const int id_max = 20;
 
 void declarar(char *id)
 {
-    printf("Declare %s, Integer\n", id);
+    printf("Reserve %s, Integer\n", id);
 }
 
 char *proxTemporal()
@@ -32,14 +32,14 @@ char *invertir(char *idEntrada)
 {
     char *idSalida;
     idSalida = proxTemporal();
-    printf("INV %s,,%s\n", idEntrada, idSalida);
+    printf("NEG %s,,%s\n", idEntrada, idSalida);
     return idSalida;
 }
 char *multiplicar(char *idEntrada1, char *idEntrada2)
 {
     char *idSalida;
     idSalida = proxTemporal();
-    printf("MULT %s,%s,%s\n", idEntrada1, idEntrada2, idSalida);
+    printf("MUL %s,%s,%s\n", idEntrada1, idEntrada2, idSalida);
     return idSalida;
 }
 char *sumar(char *idEntrada1, char *idEntrada2)
@@ -53,7 +53,7 @@ char *restar(char *idEntrada1, char *idEntrada2)
 {
     char *idSalida;
     idSalida = proxTemporal();
-    printf("SUBS %s,%s,%s\n", idEntrada1, idEntrada2, idSalida);
+    printf("SUB %s,%s,%s\n", idEntrada1, idEntrada2, idSalida);
     return idSalida;
 }
 
@@ -76,5 +76,5 @@ void iniciar()
 }
 void detener()
 {
-    printf("Stop ,\n");
+    printf("Exit ,\n");
 }

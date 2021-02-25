@@ -61,12 +61,12 @@ lista-expresiones:        expresion                                 {escribir($1
                         | expresion ',' lista-expresiones           {escribir($1);}
                         ;
 
-expresion:              '-' expresion             %prec NEG {$$ = NEG($2);}
+expresion:              '-' expresion             %prec NEG {$$ = invertir($2);}
                         | '(' expresion ')'                 {$$ = $2;}
-                        | expresion '+' expresion           {$$ = ADD($1, $3);}
-                        | expresion '-' expresion           {$$ = SUB($1, $3);}
-                        | expresion '*' expresion           {$$ = MUL($1, $3);}
-                        | expresion '/' expresion           {$$ = DIV($1, $3);}
+                        | expresion '+' expresion           {$$ = sumar($1, $3);}
+                        | expresion '-' expresion           {$$ = restar($1, $3);}
+                        | expresion '*' expresion           {$$ = multiplicar($1, $3);}
+                        | expresion '/' expresion           {$$ = dividir($1, $3);}
                         | IDENTIFICADOR                     {if(!existe($1)){mostrarError($1,1); YYERROR;}else $$ = $1;}
                         | CONSTANTE                         {$$=$1;}
                         ;
